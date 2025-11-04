@@ -19,7 +19,8 @@ end
 -- graph
 
 axes_color = 7
-x = -64
+max_crd = 3
+x = -max_crd
 pts_color = 12
 
 function graph_init()
@@ -31,11 +32,17 @@ function graph_init()
 end
 
 function graph_update()
-	x += 1
+	-- increment x
+	x += max_crd / 64
 end
 
 function graph_draw()
-	pset(x + 63, -f(x) + 63, pts_color)
+	-- scale coordinates
+	scaled_x = x / (max_crd / 64)
+	scaled_y = f(x) / (max_crd / 64)
+	
+	-- draw point
+	pset(scaled_x + 63, -scaled_y + 63, pts_color)
 end
 -->8
 -- function
