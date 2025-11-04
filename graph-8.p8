@@ -28,6 +28,9 @@ scr_size = 128
 scr_ctr = scr_size / 2 - 1
 
 function graph_init()
+	-- origin
+	print(0, scr_ctr - 4, scr_ctr + 2)
+	
 	-- x axis
 	line(0, scr_ctr, scr_size - 1, scr_ctr, axes_col)
 	print("x", scr_size - 3, scr_ctr + 2)
