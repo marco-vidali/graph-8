@@ -5,15 +5,15 @@ __lua__
 
 function _init()
 	cls()
-	graph_init()
+	grf_init()
 end
 
 function _update()
-	graph_update()
+	grf_update()
 end
 
 function _draw()
-	graph_draw()
+	grf_draw()
 end
 -->8
 -- graph
@@ -21,26 +21,26 @@ end
 crd_max = 3
 x = -crd_max
 
-axes_col = 7
+grf_col = 7
 pts_col = 12
 
 scr_size = 128
 scr_ctr = scr_size / 2 - 1
 
-function graph_init()
+function grf_init()
 	-- origin
-	print(0, scr_ctr - 4, scr_ctr + 2)
+	print(0, scr_ctr - 4, scr_ctr + 2, grf_col)
 	
 	-- x axis
-	line(0, scr_ctr, scr_size - 1, scr_ctr, axes_col)
+	line(0, scr_ctr, scr_size - 1, scr_ctr, grf_col)
 	print("x", scr_size - 3, scr_ctr + 2)
 	
 	-- y axis
-	line (scr_ctr, 0, scr_ctr, scr_size, axes_col)
+	line (scr_ctr, 0, scr_ctr, scr_size, grf_col)
 	print("y", scr_ctr - 4, 0)
 end
 
-function graph_update()
+function grf_update()
 	-- increment x
 	x += crd_max / (scr_size / 2)
 	
@@ -48,7 +48,7 @@ function graph_update()
 	if (x > crd_max) stop()
 end
 
-function graph_draw()
+function grf_draw()
 	-- scale coordinates
 	x_sc = x / (crd_max / (scr_size / 2))
 	y_sc = f(x) / (crd_max / (scr_size / 2))
