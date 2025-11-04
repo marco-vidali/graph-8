@@ -40,6 +40,9 @@ end
 function graph_update()
 	-- increment x
 	x += crd_max / (scr_size / 2)
+	
+	-- stop
+	if (x > crd_max) stop()
 end
 
 function graph_draw()
