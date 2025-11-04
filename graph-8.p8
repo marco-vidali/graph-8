@@ -18,35 +18,39 @@ end
 -->8
 -- graph
 
-max_crd = 3
-x = -max_crd
+crd_max = 3
+x = -crd_max
 
-axes_color = 7
-pts_color = 12
+axes_col = 7
+pts_col = 12
 
 scr_size = 128
-center = scr_size / 2 - 1
+scr_ctr = scr_size / 2 - 1
 
 function graph_init()
 	-- x axis
-	line(0, center, scr_size - 1, center, axes_color)
+	line(0, scr_ctr, scr_size - 1, scr_ctr, axes_col)
 	
 	-- y axis
-	line (center, 0, center, scr_size, axes_color)
+	line (scr_ctr, 0, scr_ctr, scr_size, axes_col)
 end
 
 function graph_update()
 	-- increment x
-	x += max_crd / (scr_size / 2)
+	x += crd_max / (scr_size / 2)
 end
 
 function graph_draw()
 	-- scale coordinates
-	scaled_x = x / (max_crd / (scr_size / 2))
-	scaled_y = f(x) / (max_crd / (scr_size / 2))
+	x_sc = x / (crd_max / (scr_size / 2))
+	y_sc = f(x) / (crd_max / (scr_size / 2))
+	
+	-- translate coordinates
+	x_tr = x_sc + scr_ctr
+	y_tr = -y_sc + scr_ctr
 	
 	-- draw point
-	pset(scaled_x + center, -scaled_y + center, pts_color)
+	pset(x_tr, y_tr, pts_col)
 end
 -->8
 -- function
