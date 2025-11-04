@@ -31,6 +31,26 @@ function grf_init()
 	-- origin
 	print(0, scr_ctr - 4, scr_ctr + 2, grf_col)
 	
+	-- x ticks
+	for i = -crd_max, crd_max - 1 do
+		i_x = i / (crd_max / (scr_size / 2)) + scr_ctr
+		i_y = scr_ctr + 1
+		
+		for j = 0, 3 do
+			pset(i_x, i_y + j, grf_col)
+		end
+	end
+	
+	-- y ticks
+	for i = -crd_max, crd_max - 1 do
+		i_x = scr_ctr - 1
+		i_y = i / (crd_max / (scr_size / 2)) + scr_ctr
+		
+		for j = 0, 3 do
+			pset(i_x - j, i_y, grf_col)
+		end
+	end
+	
 	-- x axis
 	line(0, scr_ctr, scr_size - 1, scr_ctr, grf_col)
 	print("x", scr_size - 3, scr_ctr + 2)
