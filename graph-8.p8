@@ -7,10 +7,20 @@ function _init()
 	cls()
 	graph_init()
 end
+
+function _update()
+	graph_update()
+end
+
+function _draw()
+	graph_draw()
+end
 -->8
 -- graph
 
 axes_color = 7
+x = -64
+pts_color = 12
 
 function graph_init()
 	-- x axis
@@ -18,6 +28,14 @@ function graph_init()
 	
 	-- y axis
 	line (63, 0, 63, 127, axes_color)
+end
+
+function graph_update()
+	x += 1
+end
+
+function graph_draw()
+	pset(x + 63, -f(x) + 63, pts_color)
 end
 -->8
 -- function
