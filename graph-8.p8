@@ -18,9 +18,10 @@ end
 -->8
 -- graph
 
-axes_color = 7
 max_crd = 3
 x = -max_crd
+
+axes_color = 7
 pts_color = 12
 
 function graph_init()
@@ -46,6 +47,7 @@ function graph_draw()
 end
 -->8
 -- function
+
 function f(x)
 	return x ^ 2
 end
