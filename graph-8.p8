@@ -24,26 +24,29 @@ x = -max_crd
 axes_color = 7
 pts_color = 12
 
+scr_size = 128
+center = scr_size / 2 - 1
+
 function graph_init()
 	-- x axis
-	line(0, 63, 127, 63, axes_color)
+	line(0, center, scr_size - 1, center, axes_color)
 	
 	-- y axis
-	line (63, 0, 63, 127, axes_color)
+	line (center, 0, center, scr_size, axes_color)
 end
 
 function graph_update()
 	-- increment x
-	x += max_crd / 64
+	x += max_crd / (scr_size / 2)
 end
 
 function graph_draw()
 	-- scale coordinates
-	scaled_x = x / (max_crd / 64)
-	scaled_y = f(x) / (max_crd / 64)
+	scaled_x = x / (max_crd / (scr_size / 2))
+	scaled_y = f(x) / (max_crd / (scr_size / 2))
 	
 	-- draw point
-	pset(scaled_x + 63, -scaled_y + 63, pts_color)
+	pset(scaled_x + center, -scaled_y + center, pts_color)
 end
 -->8
 -- function
