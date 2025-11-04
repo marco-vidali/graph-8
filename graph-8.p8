@@ -30,9 +30,11 @@ scr_ctr = scr_size / 2 - 1
 function graph_init()
 	-- x axis
 	line(0, scr_ctr, scr_size - 1, scr_ctr, axes_col)
+	print("x", scr_size - 3, scr_ctr + 2)
 	
 	-- y axis
 	line (scr_ctr, 0, scr_ctr, scr_size, axes_col)
+	print("y", scr_ctr - 4, 0)
 end
 
 function graph_update()
